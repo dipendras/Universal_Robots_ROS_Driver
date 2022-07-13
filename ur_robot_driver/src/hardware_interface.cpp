@@ -307,6 +307,7 @@ bool HardwareInterface::init(ros::NodeHandle& root_nh, ros::NodeHandle& robot_hw
                      "[https://github.com/UniversalRobots/Universal_Robots_ROS_Driver#extract-calibration-information] "
                      "for details.");
   }
+  ur_driver_->setKeepaliveCount(10);//https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/issues/507
   ur_driver_->registerTrajectoryDoneCallback(
       std::bind(&HardwareInterface::passthroughTrajectoryDoneCb, this, std::placeholders::_1));
 
